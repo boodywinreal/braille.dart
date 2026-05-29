@@ -1,6 +1,4 @@
-/// Support for doing something awesome.
-///
-/// More dartdocs go here.
+/// braille.dart
 library;
 
 export 'braille.dart';
