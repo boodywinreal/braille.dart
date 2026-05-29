@@ -6,7 +6,7 @@
 library;
 
 class BrailleCharacter {
-    /// The bits used in
+    /// The bitmask used as a 1D array, representing a flat 2x4 2D matrix
     static const List<int> _bits = [
         0x01, 0x08, // Y = 0
         0x02, 0x10, // Y = 1
@@ -18,7 +18,7 @@ class BrailleCharacter {
     int sum = 0;
     /// In unicode, \u2800 is a Braille empty symbol, and
     /// many text previewers view it as if it were a visible symbol.
-    /// Which is why you need to turn it into a space (\u20 or ' ').
+    /// Which is why you need to turn it into a space (\u0020 or ' ').
     late bool emptyIsSpace;
     BrailleCharacter({this.emptyIsSpace = true});
 
