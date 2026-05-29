@@ -24,11 +24,12 @@ class BrailleCharacter {
     late bool emptyIsSpace;
     BrailleCharacter({this.emptyIsSpace = true});
 
-    /// Fills the whole character
+    /// Fills the whole character, which sets [sum] to 0xff (255 in decimal)
     void fill() => sum = 0xff;
-    /// Clears the whole character
+    /// Clears the whole character, which clears out [sum] to zero
     void clear() => sum = 0x00;
-    /// Inverts all bits in the character, which uses the XOR logic gate
+    /// Inverts all bits in the character,
+    /// which uses the XOR operator on [sum] and 0xff (255 in decimal)
     void invert() => sum ^= 0xff;
 
     /// Turns on a bit
