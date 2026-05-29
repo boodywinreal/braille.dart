@@ -5,6 +5,8 @@
 /// - Bit: the integer representation of a dot on the symbol
 library;
 
+/// ## [BrailleCharacter]
+/// The base class of a singular Braille character
 class BrailleCharacter {
     /// The bitmask used as a 1D array, representing a flat 2x4 2D matrix
     static const List<int> _bits = [
