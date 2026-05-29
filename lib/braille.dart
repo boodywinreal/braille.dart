@@ -1,11 +1,9 @@
-/// ## braille.dart
 /// A helper library for Text-based User Interfaces related to the Braille Unicode symbols.
 /// 
 /// Info that you might need:
 /// - Bit: the integer representation of a dot on the symbol
 library;
 
-/// ## [BrailleCharacter]
 /// The base class of a singular Braille character
 /// 
 /// Provides the low-level tools like `fill`, `clear`, `invert`,
