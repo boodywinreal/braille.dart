@@ -51,7 +51,7 @@ class BrailleCharacter {
     bool dotIsActive(int X, int Y) => bitIsActive(bit(X, Y));
 
     /// The integer unicode getter
-    int get unicode => (sum != 0) && emptyIsSpace ? 0x20 : 0x2800 + sum;
+    int get unicode => (sum == 0) && emptyIsSpace ? 0x20 : 0x2800 + sum;
 
     /// Overrider to the built-in toString()
     @override
