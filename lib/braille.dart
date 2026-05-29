@@ -7,6 +7,9 @@ library;
 
 /// ## [BrailleCharacter]
 /// The base class of a singular Braille character
+/// 
+/// Provides the low-level tools like `fill`, `clear`, `invert`,
+/// and other bits and dots controlling functions
 class BrailleCharacter {
     /// The bitmask used as a 1D array, representing a flat 2x4 2D matrix
     static const List<int> _bits = [
@@ -22,6 +25,9 @@ class BrailleCharacter {
     /// many text previewers view it as if it were a visible symbol.
     /// Which is why you need to turn it into a space (\u0020 or ' ').
     late bool emptyIsSpace;
+    /// Creates a single BrailleCharacter object
+    /// 
+    /// emptyIsSpace is `true` by default
     BrailleCharacter({this.emptyIsSpace = true});
 
     /// Fills the whole character, which sets [sum] to 0xff (255 in decimal)
