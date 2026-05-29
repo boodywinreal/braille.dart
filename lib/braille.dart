@@ -35,9 +35,25 @@ class BrailleCharacter {
     void bitOff(int bit) => sum &= ~bit;
     /// Toggles a bit
     void bitToggle(int bit) => sum ^= bit;
-    /// Gets the state of the current bit
+    /// Gets the state of the given bit
     bool bitIsActive(int bit) => (sum & bit) != 0;
 
     /// Gets the integer bit from X and Y
     int bit(int X, int Y) => _bits[(Y << 1) + X];
+
+    /// Turns on a dot
+    void dotOn(int X, int Y) => bitOn(bit(X, Y));
+    /// Turns off a dot
+    void dotOff(int X, int Y) => bitOff(bit(X, Y));
+    /// Toggles a dot
+    void dotToggle(int X, int Y) => bitToggle(bit(X, Y));
+    /// Gets the state of the given dot
+    bool dotIsActive(int X, int Y) => bitIsActive(bit(X, Y));
+
+    /// The integer unicode getter
+    int get unicode => (sum != 0) && emptyIsSpace ? 0x20 : 0x2800 + sum;
+
+    /// Overrider to the built-in toString()
+    @override
+    String toString() => String.fromCharCode(unicode);
 }
