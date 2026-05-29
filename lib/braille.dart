@@ -19,21 +19,21 @@ class BrailleCharacter {
     ];
     /// The sum of the bits of the character
     int sum = 0;
-    /// In unicode, \u2800 is a Braille empty symbol, and
+    /// In unicode, `\u2800` is a Braille empty symbol, and
     /// many text previewers view it as if it were a visible symbol.
-    /// Which is why you need to turn it into a space (\u0020 or ' ').
+    /// Which is why you need to turn it into a space (`\u0020` or ' ').
     late bool emptyIsSpace;
     /// Creates a single BrailleCharacter object
     /// 
     /// emptyIsSpace is `true` by default
     BrailleCharacter({this.emptyIsSpace = true});
 
-    /// Fills the whole character, which sets [sum] to 0xff (255 in decimal)
+    /// Fills the whole character, which sets [sum] to `0xff` (255 in decimal)
     void fill() => sum = 0xff;
     /// Clears the whole character, which clears out [sum] to zero
     void clear() => sum = 0x00;
     /// Inverts all bits in the character,
-    /// which uses the XOR operator on [sum] and 0xff (255 in decimal)
+    /// which uses the XOR operator on [sum] and `0xff` (255 in decimal)
     void invert() => sum ^= 0xff;
 
     /// Turns on a bit
