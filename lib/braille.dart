@@ -1,5 +1,8 @@
 /// ## braille.dart
 /// A helper library for Text-based User Interfaces related to the Braille Unicode symbols.
+/// 
+/// Info that you might need:
+/// - Bit: the integer representation of a dot on the symbol
 library;
 
 class BrailleCharacter {
@@ -13,18 +16,28 @@ class BrailleCharacter {
     ];
     /// The sum of the bits of the character
     int sum = 0;
-    /// In unicode, \u2800 is a Braille empty symbol,
-    /// Many text previewers view it as if it were a visible symbol.
+    /// In unicode, \u2800 is a Braille empty symbol, and
+    /// many text previewers view it as if it were a visible symbol.
     /// Which is why you need to turn it into a space (\u20 or ' ').
     late bool emptyIsSpace;
     BrailleCharacter({this.emptyIsSpace = true});
 
-    /// Fills the whole character.
+    /// Fills the whole character
     void fill() => sum = 0xff;
-    /// Clears the whole character.
+    /// Clears the whole character
     void clear() => sum = 0x00;
-    /// Inverts all bits in the character, which uses the XOR logic gate.
+    /// Inverts all bits in the character, which uses the XOR logic gate
     void invert() => sum ^= 0xff;
 
-    
+    /// Turns on a bit
+    void bitOn(int bit) => sum |= bit;
+    /// Turns off a bit
+    void bitOff(int bit) => sum &= ~bit;
+    /// Toggles a bit
+    void bitToggle(int bit) => sum ^= bit;
+    /// Gets the state of the current bit
+    bool bitIsActive(int bit) => (sum & bit) != 0;
+
+    /// Gets the integer bit from X and Y
+    int bit(int X, int Y) => _bits[(Y << 1) + X];
 }
