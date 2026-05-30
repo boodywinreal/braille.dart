@@ -127,7 +127,9 @@ class BrailleBaseCanvas {
     characterList = _genList(lines * columns, emptyIsSpace);
   }
 
-  /// Access (get) a specific character inside the canvas
+  /// Access (get) a specific character inside the canvas,
+  /// using the matrix (text) coordination, while still
+  /// 0-indexed.
   BrailleCharacter access(int line, int column) {
     int index = line * columns + column;
     assert(
@@ -138,6 +140,8 @@ class BrailleBaseCanvas {
     return characterList[index];
   }
 
+  /// Access (get) a specific character inside the canvas,
+  /// using the cartesian coordination.
   BrailleCharacter accessXY(int X, int Y) => access(Y, X);
 
   /// Fills the whole canvas.
