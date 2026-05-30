@@ -94,9 +94,9 @@ class BrailleBaseCanvas {
   /// The count of columns in each line in the canvas.
   late int columns;
 
-  /// The internal characterList to store the full canvas,
+  /// The character list to store the full canvas,
   /// as a 1D array representing a 2D matrix.
-  late List<BrailleCharacter> _characterList;
+  late List<BrailleCharacter> characterList;
 
   /// In unicode, `\u2800` is a Braille empty symbol, and
   /// many text previewers view it as if it were a visible symbol.
@@ -122,7 +122,7 @@ class BrailleBaseCanvas {
   BrailleBaseCanvas(this.lines, this.columns, {this.emptyIsSpace = true, this.separator = '\n'}) {
     assert(lines > 0, "Lines should be more than 0");
     assert(columns > 0, "Columns should be more than 0");
-    _characterList = _genList(lines * columns, emptyIsSpace);
+    characterList = _genList(lines * columns, emptyIsSpace);
   }
 
   /// Access (get) a specific character inside the canvas
@@ -133,15 +133,15 @@ class BrailleBaseCanvas {
       "Index $index out of range"
     );
 
-    return _characterList[column * lines + line];
+    return characterList[column * lines + line];
   }
 
   /// Fills the whole canvas
-  void fillAll() => { for(BrailleCharacter i in _characterList) i.fill() };
+  void fillAll() => { for(BrailleCharacter i in characterList) i.fill() };
 
   /// Clears the whole canvas
-  void clearAll() => { for(BrailleCharacter i in _characterList) i.clear() };
+  void clearAll() => { for(BrailleCharacter i in characterList) i.clear() };
 
   /// Inverts the whole canvas
-  void invertAll() => { for(BrailleCharacter i in _characterList) i.invert() };
+  void invertAll() => { for(BrailleCharacter i in characterList) i.invert() };
 }
