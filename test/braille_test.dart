@@ -13,7 +13,7 @@ void main() {
     test(
         "The default sum value should be 0", () => expect(char.sum, equals(0)));
     test("The default emptyIsSpace value should be true",
-        () => expect(char.emptyIsSpace, equals(true)));
+        () => expect(char.emptyIsSpace, isTrue));
 
     /// Basic bit functionality
     test("bitOn, bitOff, bitToggle and bitIsActive functionality", () {
@@ -42,7 +42,7 @@ void main() {
       expect(char.sum, equals(0x00));
 
       // Checking on bit 0x01 (X=0, Y=0)
-      expect(char.bitIsActive(0x01), equals(false));
+      expect(char.bitIsActive(0x01), isFalse);
     });
 
     // Basic dot functionality
@@ -72,7 +72,7 @@ void main() {
       expect(char.sum, equals(0x00));
 
       // Checking on dot (0, 0)
-      expect(char.dotIsActive(0, 0), equals(false));
+      expect(char.dotIsActive(0, 0), isFalse);
 
       // Converting a dot to a bit
       expect(char.bit(1, 3), equals(0x80));
@@ -122,5 +122,27 @@ void main() {
       // Implicit way
       expect("$char", equals('⡯'));
     });
+  });
+  group("BrailleBaseCanvas", () {
+    late BrailleBaseCanvas canvas;
+
+    setUp(() => (canvas = BrailleBaseCanvas(4, 8)));
+    test("Checking input values, and default values", () {
+      // Checking given value: `lines`
+      expect(canvas.lines, equals(4));
+      // Checking given value: `columns`
+      expect(canvas.columns, equals(8));
+
+      // Checking default value: `emptyIsSpace`
+      expect(canvas.emptyIsSpace, isTrue);
+      // Checking default value: `separator`
+      expect(canvas.separator, equals('\n'));
+    });
+    test("Checking input assertions", () {
+      expect(() => BrailleBaseCanvas(0, 1), throwsA(isA<AssertionError>()));
+      expect(() => BrailleBaseCanvas(5, -2), throwsA(isA<AssertionError>()));
+    });
+
+    // ... This is enough tests for now, adding later...
   });
 }
