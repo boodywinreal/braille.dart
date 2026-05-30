@@ -1,33 +1,15 @@
 import 'package:braille_dart/braille.dart';
 
 void main() {
-  print("Braille.dart demo (Shaping F)");
-  print("-----------------------------");
-
-  // Initializing a BrailleCharacter object with the name `char`
   var char = BrailleCharacter();
 
-  // Writing the dots
-  char.dotOn(0, 0); char.dotOn(1, 0);
-  char.dotOn(0, 1);
-  char.dotOn(0, 2); char.dotOn(1, 2);
-  char.dotOn(0, 3);
+  char.dotOn(0, 0);
+  char.bitOn(0x20); // Which is the same as dot (1, 2)
+  char.bitOn(char.bit(0, 3)); // Where `char.bit` converts to a bit
+  // then it turns it on, a better shortcut is `dotOn`.
 
-  // Printing the character
-  print("Character: $char");
-  print("------------");
+  print("$char"); // Output: '⡡'
 
-  // Inverting
   char.invert();
-  print("Inverted character: $char");
-  print("---------------------");
-
-  // "Clearing" everything up
-  char.clear();
-  print("This should be a space: '$char'");
-
-  // Or just making it invisible but existing
-  char.emptyIsSpace = false;
-  print(
-      "This shouldn't be a space but rather an empty Braille character: '$char'");
+  print("$char"); // Output: '⢞'
 }
