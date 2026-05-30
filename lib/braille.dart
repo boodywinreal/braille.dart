@@ -124,4 +124,24 @@ class BrailleBaseCanvas {
     assert(columns > 0, "Columns should be more than 0");
     _characterList = _genList(lines * columns, emptyIsSpace);
   }
+
+  /// Access (get) a specific character inside the canvas
+  BrailleCharacter access(int line, int column) {
+    int index = column * lines + line;
+    assert(
+      (index >= 0) && (index < lines * columns),
+      "Index $index out of range"
+    );
+
+    return _characterList[column * lines + line];
+  }
+
+  /// Fills the whole canvas
+  void fillAll() => { for(BrailleCharacter i in _characterList) i.fill() };
+
+  /// Clears the whole canvas
+  void clearAll() => { for(BrailleCharacter i in _characterList) i.clear() };
+
+  /// Inverts the whole canvas
+  void invertAll() => { for(BrailleCharacter i in _characterList) i.invert() };
 }
