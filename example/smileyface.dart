@@ -25,5 +25,7 @@ void main() {
   // Fourth character
   canvas.accessXY(3, 1).dotOn(0, 1);
   canvas.accessXY(3, 1).dotOn(1, 0);
-  print(canvas);
+  print(canvas);// Output:
+  //  ⠂⠐ 
+  // ⠑⠒⠒⠊
 }
