@@ -160,6 +160,24 @@ class BrailleBaseCanvas {
   void bitsAllToggle(int bitInEach)
     => { for(BrailleCharacter i in characterList) i.bitToggle(bitInEach) };
   
+  /// Checks if the group of bits with the same value
+  /// in all characters have at least one of them active.
+  bool bitsAnyActive(int bitInEach){
+    for(BrailleCharacter i in characterList) {
+      if (i.bitIsActive(bitInEach)) return true;
+    }
+    return false;
+  }
+
+  /// Checks if the group of bits with the same value
+  /// in all characters is active.
+  bool bitsAllActive(int bitInEach){
+    for(BrailleCharacter i in characterList) {
+      if (!i.bitIsActive(bitInEach)) return false;
+    }
+    return true;
+  }
+  
   /// Turns on a given dot in every character in the canvas,
   /// best use when making a pattern.
   void dotsAllOn(int eachX, int eachY)
@@ -174,4 +192,22 @@ class BrailleBaseCanvas {
   /// best use when making a pattern.
   void dotsAllToggle(int eachX, int eachY)
     => { for(BrailleCharacter i in characterList) i.dotToggle(eachX, eachY) };
+  
+  /// Checks if the group of bits with the same position
+  /// in all characters have at least one of them active.
+  bool dotsAnyActive(int eachX, int eachY){
+    for(BrailleCharacter i in characterList) {
+      if (i.dotIsActive(eachX, eachY)) return true;
+    }
+    return false;
+  }
+
+  /// Checks if the group of bits with the same position
+  /// in all characters is active.
+  bool dotsAllActive(int eachX, int eachY){
+    for(BrailleCharacter i in characterList) {
+      if (!i.dotIsActive(eachX, eachY)) return false;
+    }
+    return true;
+  }
 }
