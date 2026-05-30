@@ -137,13 +137,25 @@ class BrailleBaseCanvas {
   }
 
   /// Fills the whole canvas.
-  void fillAll() => { for(final i in characterList) i.fill() };
+  void fillAll() {
+    for(final i in characterList){
+      i.fill();
+    }
+  }
 
   /// Clears the whole canvas.
-  void clearAll() => { for(final i in characterList) i.clear() };
+  void clearAll() {
+    for(final i in characterList){
+      i.clear();
+    }
+  }
 
   /// Inverts the whole canvas.
-  void invertAll() => { for(final i in characterList) i.invert() };
+  void invertAll() {
+    for(final i in characterList){
+      i.invert();
+    }
+  }
 
   /// Turns on a given bit in every character in the canvas,
   /// best use when making a pattern.
@@ -171,21 +183,13 @@ class BrailleBaseCanvas {
   
   /// Checks if the group of bits with the same value
   /// in all characters have at least one of them active.
-  bool bitsAnyActive(int bitInEach){
-    for(final i in characterList) {
-      if (i.bitIsActive(bitInEach)) return true;
-    }
-    return false;
-  }
+  bool bitsAnyActive(int bitInEach)
+    => characterList.any((i) => i.bitIsActive(bitInEach));
 
   /// Checks if the group of bits with the same value
   /// in all characters is active.
-  bool bitsAllActive(int bitInEach){
-    for(final i in characterList) {
-      if (!i.bitIsActive(bitInEach)) return false;
-    }
-    return true;
-  }
+  bool bitsAllActive(int bitInEach)
+    => characterList.every((i) => i.bitIsActive(bitInEach));
   
   /// Turns on a given dot in every character in the canvas,
   /// best use when making a pattern.
@@ -213,19 +217,11 @@ class BrailleBaseCanvas {
   
   /// Checks if the group of bits with the same position
   /// in all characters have at least one of them active.
-  bool dotsAnyActive(int eachX, int eachY){
-    for(final i in characterList) {
-      if (i.dotIsActive(eachX, eachY)) return true;
-    }
-    return false;
-  }
+  bool dotsAnyActive(int eachX, int eachY)
+    => characterList.any((i) => i.dotIsActive(eachX, eachY));
 
   /// Checks if the group of bits with the same position
   /// in all characters is active.
-  bool dotsAllActive(int eachX, int eachY){
-    for(final i in characterList) {
-      if (!i.dotIsActive(eachX, eachY)) return false;
-    }
-    return true;
-  }
+  bool dotsAllActive(int eachX, int eachY)
+    => characterList.every((i) => i.dotIsActive(eachX, eachY));
 }
