@@ -78,7 +78,9 @@ class BrailleCharacter {
   bool operator ==(Object other) 
     => identical(this, other) || (other is BrailleCharacter && other.sum == sum);
 
-  /// Overrider to the built-in `toString()`.
+  /// A string representation of the BrailleCharacter,
+  /// overriding the original `toString` due to the
+  /// custom string logic.
   @override
   String toString() => String.fromCharCode(unicode);
 }
@@ -224,4 +226,21 @@ class BrailleBaseCanvas {
   /// in all characters is active.
   bool dotsAllActive(int eachX, int eachY)
     => characterList.every((i) => i.dotIsActive(eachX, eachY));
+  
+  /// A string representation of the BrailleBaseCanvas,
+  /// overriding the original `toString` due to the
+  /// custom string logic.
+  @override
+  String toString() {
+    StringBuffer fullString = StringBuffer();
+    for (int line=0; line<lines; line++) {
+      for (int column=0; column<columns; column++) {
+        fullString.write(access(line, column).toString());
+      }
+      if (line < lines - 1) fullString.write(separator);
+    }
+
+    return fullString.toString();
+  }
+
 }
