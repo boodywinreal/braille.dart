@@ -1,6 +1,6 @@
 name: braille_dart
 description: A helper library for TUIs related to the Braille Unicode symbols.
-version: 1.0.1
+version: 2.0.0
 repository: https://github.com/boodywinreal/braille.dart
 
 environment:
