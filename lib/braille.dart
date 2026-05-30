@@ -147,18 +147,27 @@ class BrailleBaseCanvas {
 
   /// Turns on a given bit in every character in the canvas,
   /// best use when making a pattern.
-  void bitsAllOn(int bitInEach)
-    => { for(BrailleCharacter i in characterList) i.bitOn(bitInEach) };
+  void bitsAllOn(int bitInEach){
+    for(BrailleCharacter i in characterList){
+      i.bitOn(bitInEach);
+    }
+  }
 
   /// Turns off a given bit in every character in the canvas,
   /// best use when making a pattern.
-  void bitsAllOff(int bitInEach)
-    => { for(BrailleCharacter i in characterList) i.bitOff(bitInEach) };
+  void bitsAllOff(int bitInEach){
+    for(BrailleCharacter i in characterList){
+      i.bitOff(bitInEach);
+    }
+  }
   
   /// Toggles a given bit in every character in the canvas,
   /// best use when making a pattern.
-  void bitsAllToggle(int bitInEach)
-    => { for(BrailleCharacter i in characterList) i.bitToggle(bitInEach) };
+  void bitsAllToggle(int bitInEach){
+    for(BrailleCharacter i in characterList) {
+      i.bitToggle(bitInEach);
+    }
+  }
   
   /// Checks if the group of bits with the same value
   /// in all characters have at least one of them active.
@@ -180,18 +189,27 @@ class BrailleBaseCanvas {
   
   /// Turns on a given dot in every character in the canvas,
   /// best use when making a pattern.
-  void dotsAllOn(int eachX, int eachY)
-    => { for(BrailleCharacter i in characterList) i.dotOn(eachX, eachY) };
+  void dotsAllOn(int eachX, int eachY){
+    for(BrailleCharacter i in characterList){
+      i.dotOn(eachX, eachY);
+    }
+  }
   
   /// Turns off a given dot in every character in the canvas,
   /// best use when making a pattern.
-  void dotsAllOff(int eachX, int eachY)
-    => { for(BrailleCharacter i in characterList) i.dotOff(eachX, eachY) };
+  void dotsAllOff(int eachX, int eachY){
+    for(BrailleCharacter i in characterList){
+      i.dotOff(eachX, eachY);
+    }
+  }
   
   /// Toggles a given dot in every character in the canvas,
   /// best use when making a pattern.
-  void dotsAllToggle(int eachX, int eachY)
-    => { for(BrailleCharacter i in characterList) i.dotToggle(eachX, eachY) };
+  void dotsAllToggle(int eachX, int eachY){
+    for(BrailleCharacter i in characterList){
+      i.dotToggle(eachX, eachY);
+    }
+  }
   
   /// Checks if the group of bits with the same position
   /// in all characters have at least one of them active.
