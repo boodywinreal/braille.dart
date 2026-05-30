@@ -114,7 +114,7 @@ class BrailleBaseCanvas {
       (_) => BrailleCharacter(emptyIsSpace: eIS)
     );
 
-  /// The constructor of the BrailleBaseCanvas
+  /// The constructor of the BrailleBaseCanvas.
   /// 
   /// `emptyIsSpace` is `true` by default. <br>
   /// `separator` is a newline (`\n`) by default,
@@ -136,12 +136,27 @@ class BrailleBaseCanvas {
     return characterList[column * lines + line];
   }
 
-  /// Fills the whole canvas
+  /// Fills the whole canvas.
   void fillAll() => { for(BrailleCharacter i in characterList) i.fill() };
 
-  /// Clears the whole canvas
+  /// Clears the whole canvas.
   void clearAll() => { for(BrailleCharacter i in characterList) i.clear() };
 
-  /// Inverts the whole canvas
+  /// Inverts the whole canvas.
   void invertAll() => { for(BrailleCharacter i in characterList) i.invert() };
+
+  /// Turns on a given bit in every character in the canvas,
+  /// best approach when making a pattern.
+  void bitsAllOn(int bitInEach)
+    => { for(BrailleCharacter i in characterList) i.bitOn(bitInEach) };
+
+  /// Turns off a given bit in every character in the canvas,
+  /// best approach when making a pattern.
+  void bitsAllOff(int bitInEach)
+    => { for(BrailleCharacter i in characterList) i.bitOff(bitInEach) };
+  
+  /// Toggles a given bit in every character in the canvas,
+  /// best approach when making a pattern.
+  void bitsAllToggle(int bitInEach)
+    => { for(BrailleCharacter i in characterList) i.bitToggle(bitInEach) };
 }
