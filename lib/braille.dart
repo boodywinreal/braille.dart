@@ -146,17 +146,32 @@ class BrailleBaseCanvas {
   void invertAll() => { for(BrailleCharacter i in characterList) i.invert() };
 
   /// Turns on a given bit in every character in the canvas,
-  /// best approach when making a pattern.
+  /// best use when making a pattern.
   void bitsAllOn(int bitInEach)
     => { for(BrailleCharacter i in characterList) i.bitOn(bitInEach) };
 
   /// Turns off a given bit in every character in the canvas,
-  /// best approach when making a pattern.
+  /// best use when making a pattern.
   void bitsAllOff(int bitInEach)
     => { for(BrailleCharacter i in characterList) i.bitOff(bitInEach) };
   
   /// Toggles a given bit in every character in the canvas,
-  /// best approach when making a pattern.
+  /// best use when making a pattern.
   void bitsAllToggle(int bitInEach)
     => { for(BrailleCharacter i in characterList) i.bitToggle(bitInEach) };
+  
+  /// Turns on a given dot in every character in the canvas,
+  /// best use when making a pattern.
+  void dotsAllOn(int eachX, int eachY)
+    => { for(BrailleCharacter i in characterList) i.dotOn(eachX, eachY) };
+  
+  /// Turns off a given dot in every character in the canvas,
+  /// best use when making a pattern.
+  void dotsAllOff(int eachX, int eachY)
+    => { for(BrailleCharacter i in characterList) i.dotOff(eachX, eachY) };
+  
+  /// Toggles a given dot in every character in the canvas,
+  /// best use when making a pattern.
+  void dotsAllToggle(int eachX, int eachY)
+    => { for(BrailleCharacter i in characterList) i.dotToggle(eachX, eachY) };
 }
