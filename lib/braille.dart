@@ -127,13 +127,13 @@ class BrailleBaseCanvas {
 
   /// Access (get) a specific character inside the canvas
   BrailleCharacter access(int line, int column) {
-    int index = column * lines + line;
+    int index = line * columns + column;
     assert(
       (index >= 0) && (index < lines * columns),
       "Index $index out of range"
     );
 
-    return characterList[column * lines + line];
+    return characterList[index];
   }
 
   /// Fills the whole canvas.
