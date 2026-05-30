@@ -138,6 +138,8 @@ class BrailleBaseCanvas {
     return characterList[index];
   }
 
+  BrailleCharacter accessXY(int X, int Y) => access(Y, X);
+
   /// Fills the whole canvas.
   void fillAll() {
     for(final i in characterList){
